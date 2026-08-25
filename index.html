@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodie - Food Ordering Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Food<span>ie</span></div>
+
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" id="cartButton">
+      🛒 Cart <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="hero-label">Fresh and delicious</p>
+        <h1>Delicious food<br>delivered to you</h1>
+        <p>
+          Order your favorite meals from local restaurants
+          and enjoy fast home delivery.
+        </p>
+        <a href="#menu" class="primary-button">Order Now</a>
+      </div>
+
+      <div class="hero-image">
+        <div class="food-circle">🍔</div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <p class="hero-label">Our menu</p>
+          <h2>Choose your favorite food</h2>
+        </div>
+
+        <input
+          type="search"
+          id="searchInput"
+          class="search-box"
+          placeholder="Search food..."
+        >
+      </div>
+
+      <div class="categories" id="categories">
+        <button class="category active" data-category="All">All</button>
+        <button class="category" data-category="Pizza">Pizza</button>
+        <button class="category" data-category="Burger">Burger</button>
+        <button class="category" data-category="Indian">Indian</button>
+        <button class="category" data-category="Chinese">Chinese</button>
+        <button class="category" data-category="Dessert">Dessert</button>
+      </div>
+
+      <div class="food-grid" id="foodGrid"></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div>
+        <p class="hero-label">Why choose us?</p>
+        <h2>Good food, fast delivery</h2>
+      </div>
+
+      <div class="advantages">
+        <div class="advantage-card">
+          <span>🍴</span>
+          <h3>Fresh Food</h3>
+          <p>Prepared using fresh and quality ingredients.</p>
+        </div>
+
+        <div class="advantage-card">
+          <span>🚴</span>
+          <h3>Fast Delivery</h3>
+          <p>Get your food delivered quickly and safely.</p>
+        </div>
+
+        <div class="advantage-card">
+          <span>⭐</span>
+          <h3>Best Taste</h3>
+          <p>Enjoy delicious food from trusted restaurants.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="logo">Food<span>ie</span></div>
+    <p>Fresh food delivered with love.</p>
+    <p>© 2026 Foodie. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart sidebar -->
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="close-button">&times;</button>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+      <p class="empty-cart">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-summary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="subtotal">₹0</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <strong id="deliveryFee">₹0</strong>
+      </div>
+
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <strong id="total">₹0</strong>
+      </div>
+
+      <button id="checkoutButton" class="checkout-button">
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Checkout modal -->
+  <div class="modal-container" id="checkoutModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">&times;</button>
+
+      <h2>Complete Your Order</h2>
+      <p class="modal-description">Enter your delivery details.</p>
+
+      <form id="checkoutForm">
+        <label for="customerName">Full Name</label>
+        <input type="text" id="customerName" required>
+
+        <label for="customerPhone">Phone Number</label>
+        <input
+          type="tel"
+          id="customerPhone"
+          pattern="[0-9]{10}"
+          placeholder="10-digit mobile number"
+          required
+        >
+
+        <label for="customerAddress">Delivery Address</label>
+        <textarea id="customerAddress" rows="3" required></textarea>
+
+        <label for="paymentMethod">Payment Method</label>
+        <select id="paymentMethod" required>
+          <option value="">Select payment method</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
+          <option value="UPI">UPI</option>
+          <option value="Card">Card</option>
+        </select>
+
+        <button type="submit" class="checkout-button">
+          Place Order
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="notification" class="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
